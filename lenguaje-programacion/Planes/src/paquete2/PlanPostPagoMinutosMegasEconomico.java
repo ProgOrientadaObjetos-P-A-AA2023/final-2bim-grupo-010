@@ -15,7 +15,9 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double costoMegas;
     private int descuento;
     
-    /*minutos|costo minutos|megas expresado en gigas|costo por cada gigas|porcentaje de descuento (Ejemplo: 10%)*/
+    /*  minutos|costo minutos|megas expresado en gigas|costo por cada gigas|
+        porcentaje de descuento (Ejemplo: 10%)
+    */
     
     public PlanPostPagoMinutosMegasEconomico(String n, String id, String c, String marca,
             String modelo, int numC, double min, double costoMi, double meg, 
@@ -26,6 +28,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         megas = meg;
         costoMegas = costoMeg;
         descuento = desc;
+        tipoPlan = "PlanPostPagoMinutosMegasEconomico";
     }
 
     public void establecerMinutos(double p) {

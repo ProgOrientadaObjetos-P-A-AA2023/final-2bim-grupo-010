@@ -13,8 +13,9 @@ public class PlanPostPagoMegas extends PlanCelular {
     private double costoMegas;
     private double tarifaBase;
     
-    /*PlanPostPagoMegas
-megas expresado en gigas|costo por cada giga|tarifa base*/
+    /*  PlanPostPagoMegas
+        megas expresado en gigas|costo por cada giga|tarifa base
+    */
     
     public PlanPostPagoMegas(String n, String id, String c, String marca,
             String modelo, int numC, double meg, double costoM, double tB){
@@ -22,6 +23,7 @@ megas expresado en gigas|costo por cada giga|tarifa base*/
         megas = meg;
         costoMegas = costoM;
         tarifaBase = tB;
+        tipoPlan = "PlanPostPagoMegas";
     }
     
     public void establecerMegas(double p) {
@@ -56,7 +58,6 @@ megas expresado en gigas|costo por cada giga|tarifa base*/
     @Override
     public String toString() {
         String cadena = String.format("%s"
-                + ">> Plan PostPago Megas <<\n"
                 + "\tMegas: %.2f\n"
                 + "\tCosto Megas: $%.2f\n"
                 + "\tTarifa Base: $%.2f\n\n"

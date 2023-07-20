@@ -14,8 +14,10 @@ public class PlanPostPagoMinutos extends PlanCelular{
     private double minutosIn;
     private double costoMinIn;
     
-    /*PlanPostPagoMinutos:
-minutos nacionales|costo minuto nacional|minutos internacionales|costo minuto internacional*/
+    /*  PlanPostPagoMinutos:
+        minutos nacionales|costo minuto nacional|minutos internacionales|
+        costo minuto internacional
+    */
     
     public PlanPostPagoMinutos(String n, String id, String c, String marca,
             String modelo, int numC, double mN, double costoMN, double mI, 
@@ -25,6 +27,7 @@ minutos nacionales|costo minuto nacional|minutos internacionales|costo minuto in
         costoMinNa = costoMN;
         minutosIn = mI;
         costoMinIn = costoMI;
+        tipoPlan = "PlanPostPagoMinutos";
     }
 
     public void establecerMinutoNa(double p) {
