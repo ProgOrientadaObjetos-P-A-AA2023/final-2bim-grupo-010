@@ -19,10 +19,10 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         porcentaje de descuento (Ejemplo: 10%)
     */
     
-    public PlanPostPagoMinutosMegasEconomico(String n, String id, String c, String marca,
-            String modelo, int numC, double min, double costoMi, double meg, 
+    public PlanPostPagoMinutosMegasEconomico(String n, String a, String pasa, String c, 
+            String ba, String marca, String modelo, int numC, double min, double costoMi, double meg, 
             double costoMeg, int desc){
-        super(n, id, c, marca, modelo, numC);
+        super(n, a, pasa, c, ba, marca, modelo, numC);
         minutos = min;
         costoMin = costoMi;
         megas = meg;

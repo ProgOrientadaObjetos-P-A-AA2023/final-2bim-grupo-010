@@ -19,10 +19,10 @@ public class PlanPostPagoMinutos extends PlanCelular{
         costo minuto internacional
     */
     
-    public PlanPostPagoMinutos(String n, String id, String c, String marca,
-            String modelo, int numC, double mN, double costoMN, double mI, 
+    public PlanPostPagoMinutos(String n, String a, String pasa, String c, 
+            String ba, String marca, String modelo, int numC, double mN, double costoMN, double mI, 
             double costoMI){
-        super(n, id, c, marca, modelo, numC);
+        super(n, a, pasa, c, ba, marca, modelo, numC);
         minutoNa = mN;
         costoMinNa = costoMN;
         minutosIn = mI;

@@ -9,13 +9,16 @@ package paquete2;
  * @author Usuario
  */
 public abstract class PlanCelular {
-    protected String nombresProp;
-    protected String idProp;
-    protected String ciudadProp;
+    protected String nombres;
+    protected String apellidos;
+    protected String pasaporte;
+    protected String ciudad;
+    protected String barrio;
     protected String marcaCelular;
     protected String modeloCelular;
     protected int numCelular;
     protected String tipoPlan;
+    
     protected double pagoMensual;
     
     /*  nombres propietario tipo (tipo cadena)
@@ -27,26 +30,36 @@ public abstract class PlanCelular {
         pago mensual (para obtener el valor, se debe operar en cada subclase)
     */
 
-    public PlanCelular(String n, String id, String c, String marca, 
+    public PlanCelular(String n, String a, String pasa, String c, String ba, String marca, 
             String modelo, int numC) {
-        nombresProp = n;
-        idProp = id;
-        ciudadProp = c;
+        nombres = n;
+        apellidos = a;
+        pasaporte = pasa;
+        ciudad = c;
+        barrio = ba;
         marcaCelular = marca;
         modeloCelular = modelo;
         numCelular = numC;
     }  
 
-    public void establecerNombresProp(String p) {
-        nombresProp = p;
+    public void establecerNombres(String p) {
+        nombres = p;
     }
     
-    public void establecerIdProp(String p) {
-        idProp = p;
+    public void establecerApellidos(String p) {
+        apellidos = p;
     }
     
-    public void establecerCiudadProp(String p) {
-        ciudadProp = p;
+    public void establecerPasaporte(String p) {
+        pasaporte = p;
+    }
+    
+    public void establecerCiudad(String p) {
+        ciudad = p;
+    }
+    
+    public void establecerBarrio(String p) {
+        barrio = p;
     }
     
     public void establecerMarcaCelular(String p) {
@@ -57,27 +70,35 @@ public abstract class PlanCelular {
         modeloCelular = p;
     }
     
-    public void establecerTipoPlan(String p) {
-        tipoPlan = p;
-    }
-    
     public void establecerNumCelular(int p) {
         numCelular = p;
+    } 
+    
+    public void establecerTipoPlan(String p) {
+        tipoPlan = p;
     } 
   
     public abstract void calcularPagoMensual();
     
     
-    public String obtenerNombresProp() {
-        return nombresProp;
+    public String obtenerNombres() {
+        return nombres;
+    }
+    
+    public String obtenerApellidos() {
+        return apellidos;
     }
 
-    public String obtenerIdProp() {
-        return idProp;
+    public String obtenerPasaporte() {
+        return pasaporte;
     }
 
     public String obtenerCiudadProp() {
-        return ciudadProp;
+        return ciudad;
+    }
+    
+    public String obtenerBarrio() {
+        return barrio;
     }
 
     public String obtenerMarcaCelular() {
@@ -91,16 +112,41 @@ public abstract class PlanCelular {
     public int obtenerNumCelular() {
         return numCelular;
     } 
-
-    public double obtenerPagoMensual() {
-        return pagoMensual;
-    }
     
     public String obtenerTipoPlan() {
         return tipoPlan;
     }
 
+    public double obtenerPagoMensual() {
+        return pagoMensual;
+    }
+    
     @Override
+    public String toString() {
+        String cadena = String.format(">> Plan Celular %s <<\n"
+                + "Datos del Propietario:\n"
+                + "\tNombres: %s\n"
+                + "\tApellidos: %s\n"
+                + "\tPasaporte: %s\n"
+                + "\tCiudad: %s\n"
+                + "\tBarrio: %s\n"
+                + "\tMarca Celular: %s\n"
+                + "\tModelo Celular: %s\n"
+                + "\tNúmero celular: %d\n", 
+                obtenerTipoPlan(),
+                obtenerNombres(),
+                obtenerApellidos(),
+                obtenerPasaporte(),
+                obtenerCiudadProp(),
+                obtenerBarrio(),
+                obtenerMarcaCelular(),
+                obtenerModeloCelular(),
+                obtenerNumCelular());
+        
+        return cadena;
+    }
+
+    /*@Override
     public String toString() {
         String cadena = String.format(">> Plan Celular %s <<\n"
                 + "Datos del Propietario:\n"
@@ -119,5 +165,5 @@ public abstract class PlanCelular {
                 obtenerNumCelular());
         
         return cadena;
-    }
+    }*/
 }

@@ -16,15 +16,24 @@ public class PlanPostPagoMegas extends PlanCelular {
     /*  PlanPostPagoMegas
         megas expresado en gigas|costo por cada giga|tarifa base
     */
+    public PlanPostPagoMegas(String n, String a, String pasa, String c, 
+            String ba, String marca, String modelo, int numC, double meg, 
+            double costoM, double tB){
+        super(n, a, pasa, c, ba, marca, modelo, numC);
+        megas = meg;
+        costoMegas = costoM;
+        tarifaBase = tB;
+        tipoPlan = "PlanPostPagoMegas";
+    }
     
-    public PlanPostPagoMegas(String n, String id, String c, String marca,
+    /*public PlanPostPagoMegas(String n, String id, String c, String marca,
             String modelo, int numC, double meg, double costoM, double tB){
         super(n, id, c, marca, modelo, numC);
         megas = meg;
         costoMegas = costoM;
         tarifaBase = tB;
         tipoPlan = "PlanPostPagoMegas";
-    }
+    }*/
     
     public void establecerMegas(double p) {
         megas = p;
