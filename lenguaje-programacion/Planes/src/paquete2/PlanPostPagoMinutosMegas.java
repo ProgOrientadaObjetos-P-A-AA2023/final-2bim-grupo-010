@@ -17,6 +17,9 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     /*  PlanPostPagoMinutosMegas
         minutos|costo minutos|megas expresado en gigas|costo por cada giga
     */
+    public PlanPostPagoMinutosMegas () {
+        
+    }
     
     public PlanPostPagoMinutosMegas(String n, String a, String pasa, String c, 
             String ba, String marca, String modelo, int numC, double min, double costoMi, double meg, 

@@ -29,7 +29,10 @@ public abstract class PlanCelular {
         numero celular
         pago mensual (para obtener el valor, se debe operar en cada subclase)
     */
-
+    public PlanCelular() {
+        
+    }
+    
     public PlanCelular(String n, String a, String pasa, String c, String ba, String marca, 
             String modelo, int numC) {
         nombres = n;
