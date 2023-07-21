@@ -84,9 +84,8 @@ public class Enlace {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
                                         
-            String data = String.format("INSERT INTO planPostPagoMegas"
-            + " (tipo,"
-            + "nombre, apellido, pasaporte, ciudad, barrio, marcaCel,"
+            String data = String.format("INSERT INTO planPostPagoMegas "
+            + "(tipo, nombre, apellido, pasaporte, ciudad, barrio, marcaCel,"
             + "modeloCel, numCel, megas, costoM, tarifaBase, pago) "
             + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'"
             + "%s, %s, %s, %s, %s)", 
@@ -106,9 +105,9 @@ public class Enlace {
 
             statement.executeUpdate(data);         
             // System.out.println(data);            
-            obtenerConexion().close();
+            // obtenerConexion().close();
         } catch (SQLException e) {  
-             System.out.println("Exception:");
+             System.out.println("Exception: linea 110");
              System.out.println(e.getMessage());               
         }  
     }
@@ -191,22 +190,103 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = "Select * from planes;";
             
+            String data = "Select * from planPostPagoMegas";            
             ResultSet rs = statement.executeQuery(data);
-            while(rs.next()){
-                
-                PlanCelular plan = new PlanCelular();
-                plan.establecerNombresProp(rs.getString("nombre"));
-                plan.establecerValorMatricula(rs.getDouble("valor_matricula"));
-                lista.add(plan);
-            }
             
-            obtenerConexion().close();
+            String uwu = rs.getString("tipo");
+            
+            if (uwu.equals("PlanPostPagoMegas")) {
+                while(rs.next()){
+                    PlanPostPagoMegas plan = new PlanPostPagoMegas(
+                            rs.getString("nombre"), 
+                            rs.getString("apellido"), 
+                            rs.getString("pasaporte"), 
+                            rs.getString("ciudad"), 
+                            rs.getString("barrio"), 
+                            rs.getString("marcaCel"), 
+                            rs.getString("modeloCel"), 
+                            rs.getInt("numCel"), 
+                            rs.getDouble("megas"), 
+                            rs.getDouble("costoM"), 
+                            rs.getDouble("tarifaBase"));
+                    lista.add(plan);
+                }
+            } else {
+                // establecerConexion();
+                data = "Select * from planPostPagoMinutos"; 
+                uwu = rs.getString("tipo");
+                
+                if (uwu.equals("PlanPostPagoMinutos")) {
+                    while(rs.next()){
+                        PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
+                                rs.getString("nombre"), 
+                                rs.getString("apellido"), 
+                                rs.getString("pasaporte"), 
+                                rs.getString("ciudad"), 
+                                rs.getString("barrio"), 
+                                rs.getString("marcaCel"), 
+                                rs.getString("modeloCel"), 
+                                rs.getInt("NumCel"), 
+                                rs.getDouble("minutosNaci"), 
+                                rs.getDouble("costoMinNaci"), 
+                                rs.getDouble("minutosInter"),
+                                rs.getDouble("costoMinInter"));
+                        lista.add(plan); 
+                    }
+                } else {
+                    // establecerConexion();
+                    data = "Select * from planPostPagoMinutosMegas"; 
+                    uwu = rs.getString("tipo");
+
+                    if (uwu.equals("PlanPostPagoMinutosMegas")) {
+                        while(rs.next()){
+                            PlanPostPagoMinutosMegas plan = new PlanPostPagoMinutosMegas(
+                                    rs.getString("nombre"), 
+                                    rs.getString("apellido"), 
+                                    rs.getString("pasaporte"), 
+                                    rs.getString("ciudad"), 
+                                    rs.getString("barrio"), 
+                                    rs.getString("marcaCel"), 
+                                    rs.getString("modeloCel"), 
+                                    rs.getInt("numCel"), 
+                                    rs.getDouble("min"), 
+                                    rs.getDouble("costoMin"), 
+                                    rs.getDouble("megas"),
+                                    rs.getDouble("costoMegas"));
+                            lista.add(plan); 
+                        }
+                    } else {
+                        // establecerConexion();
+                        data = "Select * from planPostPagoMinutosMegasEconomico"; 
+                        uwu = rs.getString("tipo");
+
+                        if (uwu.equals("PlanPostPagoMinutosMegasEconomico")) {
+                            while(rs.next()){
+                                PlanPostPagoMinutosMegasEconomico plan = new PlanPostPagoMinutosMegasEconomico(
+                                        rs.getString("nombre"), 
+                                        rs.getString("apellido"), 
+                                        rs.getString("pasaporte"), 
+                                        rs.getString("ciudad"), 
+                                        rs.getString("barrio"), 
+                                        rs.getString("marcaCel"), 
+                                        rs.getString("modeloCel"), 
+                                        rs.getInt("numCel"), 
+                                        rs.getDouble("min"), 
+                                        rs.getDouble("costoMin"), 
+                                        rs.getDouble("megas"),
+                                        rs.getDouble("costoMegas"),
+                                        rs.getInt("descuento"));
+                                lista.add(plan); 
+                            }
+                        }
+                    }
+                } 
+            }
+        obtenerConexion().close();
         } catch (SQLException e) {  
-             System.out.println("Exception: insertarCiudad");
+             System.out.println("Exception: uwu linea 289");
              System.out.println(e.getMessage());  
-             
         }  
     }
      
