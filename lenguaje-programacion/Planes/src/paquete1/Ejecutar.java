@@ -4,8 +4,10 @@
  */
 package paquete1;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 import paquete2.*;
+import paquete3.Enlace;
 /**
  *
  * @author Usuario
@@ -15,8 +17,10 @@ public class Ejecutar {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Scanner entrada = new Scanner(System.in);
+        
+        Enlace c = new Enlace();
         boolean bandera = true;
         while (bandera) {
             System.out.printf("%s\n%s\n%s\n%s\n%s\n",
@@ -30,8 +34,10 @@ public class Ejecutar {
             switch (opcion) {
                 
                 case 1 -> {
-                    
+                    PlanPostPagoMegas plan = plan1();
+                    c.insertarPlanPostPagoMegas(plan);
                 }
+<<<<<<< HEAD
                 case 2 -> {
                      
                 }
@@ -41,6 +47,24 @@ public class Ejecutar {
                 case 4 -> {
                     
                 }
+=======
+                
+                case 2 -> {
+                    PlanPostPagoMinutos plan = plan2();
+                    c.insertarPlanPostPagoMinutos(plan);
+                }
+                
+                case 3 -> {
+                    PlanPostPagoMinutosMegas plan = plan3();
+                    c.insertarPlanPostPagoMinutosMegas(plan);
+                }
+                
+                case 4 -> {
+                    PlanPostPagoMinutosMegasEconomico plan = plan4();
+                    c.insertarPlanPostPagoMinutosMegasEconomico(plan);
+                }
+                
+>>>>>>> 7eb9695e7a7e254a87451c24eb920e1358c97a95
                 default -> {}
             }                                       
             entrada.nextLine();
@@ -50,6 +74,11 @@ public class Ejecutar {
                 bandera = false;
             }
         } 
+        
+        c.obtenerDataPlan();
+        for (int i = 0; i < c.obtenerArrayList().size(); i++) {
+            System.out.printf("%s\n", c.obtenerArrayList().get(i));
+        }
     }
     
     public static PlanPostPagoMegas plan1(){
