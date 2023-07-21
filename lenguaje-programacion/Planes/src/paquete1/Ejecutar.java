@@ -19,7 +19,7 @@ public class Ejecutar {
         Scanner entrada = new Scanner(System.in);
         boolean bandera = true;
         while (bandera) {
-            System.out.printf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+            System.out.printf("%s\n%s\n%s\n%s\n%s\n",
                     "              >>Planes de Celular<<              ",
                     "1) Ingresar un Plan PostPago Megas",
                     "2) Ingresar un Plan PostPago Minutos",
@@ -30,6 +30,15 @@ public class Ejecutar {
             switch (opcion) {
                 
                 case 1 -> {
+                    
+                }
+                case 2 -> {
+                     
+                }
+                case 3 -> {
+                    
+                }
+                case 4 -> {
                     
                 }
                 default -> {}
@@ -195,50 +204,6 @@ public class Ejecutar {
         
         return p4;
     }
-    /*public static void ingresarPropietario() {
-        String nombreArchivoP = "datos/propietarios.dat";
-        Scanner entrada = new Scanner(System.in);
-        
-        Propietario p = buscarPropietario();
-        
-        if (p == null) {
-            System.out.println("El propietario no existe, ingrese los siguientes datos:");
-            System.out.println("Ingrese el nombre del propietario:");
-            String nombre = entrada.nextLine();
-            System.out.println("Ingrese apellido:");
-            String apellido = entrada.nextLine();
-            System.out.println("Ingrese ID:");
-            String id = entrada.nextLine();
-            System.out.println("----------------------------------------------");
-
-            Propietario propietario = new Propietario(nombre, apellido, id);
-
-            EscrituraArchivoSecuencialPropi archivoPropi
-                    = new EscrituraArchivoSecuencialPropi(nombreArchivoP);
-            archivoPropi.establecerRegistro(propietario);
-            archivoPropi.establecerSalida();
-            archivoPropi.cerrarArchivo();
-
-            System.out.println("Propietario creado");
-        } else {
-            System.out.printf("El propietario ya existe y es: \n%s\n%s\n%s\n",
-                    p.obtenerNombre(),p.obtenerApellido(),p.obtenerId());
-        }*/
-    
-    
-    
-    /*public static Propietario buscarPropietario() {
-        String nombreArchivoProp = "datos/propietarios.dat";
-        Scanner entrada = new Scanner(System.in);
-        
-        System.out.println("Ingrese ID:");
-        String id = entrada.next();
-        LecturaAchivoSecuencialPropi lectura =
-                new LecturaAchivoSecuencialPropi(nombreArchivoProp);
-        lectura.establecerRegistroBuscado(id);
-        Propietario p = lectura.obtenerRegistroBuscado();            
-        return p;
-    }*/
 }
 
 /*

@@ -195,7 +195,12 @@ public class Enlace {
             
             ResultSet rs = statement.executeQuery(data);
             while(rs.next()){
-                
+                /*
+                tipo,"
+            + "nombre, apellido, pasaporte, ciudad, barrio, marcaCel,"
+            + "modeloCel, numCel, min, costoMin, megas, costoMegas, descuento"
+            + ",pago
+                */
                 PlanCelular plan = new PlanCelular();
                 plan.establecerNombresProp(rs.getString("nombre"));
                 plan.establecerValorMatricula(rs.getDouble("valor_matricula"));

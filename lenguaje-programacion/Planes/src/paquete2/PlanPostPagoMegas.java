@@ -39,8 +39,8 @@ public class PlanPostPagoMegas extends PlanCelular {
         tipoPlan = "PlanPostPagoMegas";
     }*/
     
-    public void establecerMegas(double p) {
-        megas = p;
+    public void establecerMegas() {
+        megas = megas/1000;
     }
 
     public void establecerCostoMegas(double p) {
@@ -71,7 +71,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s"
-                + "\tMegas: %.2f\n"
+                + "\tMegas: %.2f\nGB"
                 + "\tCosto Megas: $%.2f\n"
                 + "\tTarifa Base: $%.2f\n\n"
                 + "Pago Mensual Plan: $%.2f\n",

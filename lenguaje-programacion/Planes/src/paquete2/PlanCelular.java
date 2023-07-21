@@ -148,25 +148,4 @@ public abstract class PlanCelular {
         
         return cadena;
     }
-
-    /*@Override
-    public String toString() {
-        String cadena = String.format(">> Plan Celular %s <<\n"
-                + "Datos del Propietario:\n"
-                + "\tNombres: %s\n"
-                + "\tID: %s\n"
-                + "\tCiudad: %s\n"
-                + "\tMarca Celular: %s\n"
-                + "\tModelo Celular: %s\n"
-                + "\tNúmero celular: %d\n", 
-                obtenerTipoPlan(),
-                obtenerNombresProp(),
-                obtenerIdProp(),
-                obtenerCiudadProp(),
-                obtenerMarcaCelular(),
-                obtenerModeloCelular(),
-                obtenerNumCelular());
-        
-        return cadena;
-    }*/
 }
