@@ -183,6 +183,69 @@ public class Enlace {
 
             String data = "Select * from planPostPagoMegas";
             ResultSet rs = statement.executeQuery(data);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            while(rs.next()){
+                /*
+                tipo,"
+            + "nombre, apellido, pasaporte, ciudad, barrio, marcaCel,"
+            + "modeloCel, numCel, min, costoMin, megas, costoMegas, descuento"
+            + ",pago
+                */
+                PlanCelular plan = new PlanCelular();
+                plan.establecerNombresProp(rs.getString("nombre"));
+                plan.establecerValorMatricula(rs.getDouble("valor_matricula"));
+                lista.add(plan);
+            }
+=======
+>>>>>>> 7eb9695e7a7e254a87451c24eb920e1358c97a95
+            
+            String uwu = rs.getString("tipo");
+            
+            if (uwu.equals("PlanPostPagoMegas")) {
+                while(rs.next()){
+                    PlanPostPagoMegas plan = new PlanPostPagoMegas(
+                            rs.getString("nombre"), 
+                            rs.getString("apellido"), 
+                            rs.getString("pasaporte"), 
+                            rs.getString("ciudad"), 
+                            rs.getString("barrio"), 
+                            rs.getString("marcaCel"), 
+                            rs.getString("modeloCel"), 
+                            rs.getInt("numCel"), 
+                            rs.getDouble("megas"), 
+                            rs.getDouble("costoM"), 
+                            rs.getDouble("tarifaBase"));
+                    lista.add(plan);
+                }
+            } else {
+                // establecerConexion();
+                data = "Select * from planPostPagoMinutos"; 
+                uwu = rs.getString("tipo");
+                
+                if (uwu.equals("PlanPostPagoMinutos")) {
+                    while(rs.next()){
+                        PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
+                                rs.getString("nombre"), 
+                                rs.getString("apellido"), 
+                                rs.getString("pasaporte"), 
+                                rs.getString("ciudad"), 
+                                rs.getString("barrio"), 
+                                rs.getString("marcaCel"), 
+                                rs.getString("modeloCel"), 
+                                rs.getInt("NumCel"), 
+                                rs.getDouble("minutosNaci"), 
+                                rs.getDouble("costoMinNaci"), 
+                                rs.getDouble("minutosInter"),
+                                rs.getDouble("costoMinInter"));
+                        lista.add(plan); 
+                    }
+                } else {
+                    // establecerConexion();
+                    data = "Select * from planPostPagoMinutosMegas"; 
+                    uwu = rs.getString("tipo");
+>>>>>>> 0fc5e200be2fbe731f20ae504989710ef5484992
 
             while (rs.next()) {
                 PlanPostPagoMegas plan = new PlanPostPagoMegas(
