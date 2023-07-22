@@ -37,18 +37,6 @@ public class Ejecutar {
                     PlanPostPagoMegas plan = plan1();
                     c.insertarPlanPostPagoMegas(plan);
                 }
-<<<<<<< HEAD
-                case 2 -> {
-                     
-                }
-                case 3 -> {
-                    
-                }
-                case 4 -> {
-                    
-                }
-=======
-                
                 case 2 -> {
                     PlanPostPagoMinutos plan = plan2();
                     c.insertarPlanPostPagoMinutos(plan);
@@ -63,8 +51,6 @@ public class Ejecutar {
                     PlanPostPagoMinutosMegasEconomico plan = plan4();
                     c.insertarPlanPostPagoMinutosMegasEconomico(plan);
                 }
-                
->>>>>>> 7eb9695e7a7e254a87451c24eb920e1358c97a95
                 default -> {}
             }                                       
             entrada.nextLine();
