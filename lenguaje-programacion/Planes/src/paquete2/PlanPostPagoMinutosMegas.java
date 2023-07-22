@@ -26,9 +26,9 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
             double costoMeg){
         super(n, a, pasa, c, ba, marca, modelo, numC);
         minutos = min;
-        costoMi = costoMi;
+        costoMin = costoMi;
         megas = meg;
-        costoMeg = costoMeg;
+        costoMegas = costoMeg;
         tipoPlan = "PlanPostPagoMinutosMegas";
     }        
 
@@ -71,19 +71,18 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     
     @Override
     public String toString() {
-        String cadena = String.format("%s"
-                + ">> Plan PostPago Minutos/Megas <<\n"
-                + "\tMinutos: %.2f\n"
-                + "\tCosto minutos: $%.2f\n"
-                + "\tMegas: %.2f\n"
-                + "\tCosto megas: $%.2f\n"
+        String cadena = String.format("%s\n"
+                + "Minutos: %.2f\n"
+                + "Costo minutos: $%.4f\n"
+                + "Megas: %.2f\n"
+                + "Costo megas: $%.4f\n"
                 + "Pago Mensual Plan: $%.2f\n",
                 super.toString(),
                 obtenerMinutos(),
                 obtenerCostoMin(),
                 obtenerMegas(),
                 obtenerCostoMegas(),
-                obtenerCiudadProp());
+                obtenerPagoMensual());
 
         return cadena;
     }

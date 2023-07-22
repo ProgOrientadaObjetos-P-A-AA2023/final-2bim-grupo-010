@@ -63,9 +63,17 @@ public class Ejecutar {
             }
         } 
         
-        c.obtenerDataPlan();
-        for (int i = 0; i < c.obtenerArrayList().size(); i++) {
-            System.out.printf("%s\n", c.obtenerArrayList().get(i));
+        c.obtenerDataPlanPostPagoMegas();
+        c.obtenerDataPlanPostPagoMinutos();
+        c.obtenerDataPlanPostPagoMinutosMegas();
+        c.obtenerDataPlanPostPagoMinutosMegasEconomico();
+        
+        if (c.obtenerArrayList().size()==0) {
+            System.out.println("No hay nada que mostrar");
+        } else {
+            for (int i = 0; i < c.obtenerArrayList().size(); i++) {
+                System.out.printf("%s\n", c.obtenerArrayList().get(i));
+            } 
         }
     }
     
