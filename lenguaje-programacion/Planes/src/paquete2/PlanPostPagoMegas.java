@@ -10,7 +10,9 @@ package paquete2;
  */
 public class PlanPostPagoMegas extends PlanCelular {
     private double megas;
+    private double gigas;
     private double costoMegas;
+    private double costoGigas;
     private double tarifaBase;
     
     /*  PlanPostPagoMegas
@@ -39,12 +41,20 @@ public class PlanPostPagoMegas extends PlanCelular {
         tipoPlan = "PlanPostPagoMegas";
     }*/
     
-    public void establecerMegas() {
-        megas = megas/1000;
+    public void establecerMegas(double p) {
+        megas = p;
+    }
+    
+    public void establecerGigas() {
+        gigas = megas/1000;
     }
 
     public void establecerCostoMegas(double p) {
         costoMegas = p;
+    }
+    
+    public void establecerCostoGigas() {
+        costoGigas = (megas*costoMegas)/gigas;
     }
 
     public void establecerTarifaBase(double p) {
@@ -54,9 +64,17 @@ public class PlanPostPagoMegas extends PlanCelular {
     public double obtenerMegas() {
         return megas;
     }
+    
+    public double obtenerGigas() {
+        return gigas;
+    }
 
     public double obtenerCostoMegas() {
         return costoMegas;
+    }
+    
+    public double obtenerCostoGigas() {
+        return costoGigas;
     }
 
     public double obtenerTarifaBase() {
@@ -71,13 +89,17 @@ public class PlanPostPagoMegas extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s"
-                + "Megas: %.2f GB\n"
+                + "Megas: %.2f MB\n"
+                + "Gigas: %.2f GB\n"
                 + "Costo Megas: $%.4f\n"
+                + "Costo Gigas: $%.4f\n"
                 + "Tarifa Base: $%.2f\n\n"
                 + "Pago Mensual Plan: $%.2f\n",
                 super.toString(),
                 obtenerMegas(),
+                obtenerGigas(),
                 obtenerCostoMegas(),
+                obtenerCostoGigas(),
                 obtenerTarifaBase(),
                 obtenerPagoMensual());
 

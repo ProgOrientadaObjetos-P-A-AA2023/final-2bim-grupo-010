@@ -195,12 +195,14 @@ public class Enlace {
                         rs.getDouble("megas"), 
                         rs.getDouble("costoM"), 
                         rs.getDouble("tarifaBase"));
+                plan.establecerGigas();
+                plan.establecerCostoGigas();
                 plan.calcularPagoMensual();
                 lista.add(plan);
             }
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.err.println("Exception: uwuDATA linea 203");
+            System.err.println("Exception: uwuDATA linea 205");
             System.out.println(e.getMessage());
         }
     }
@@ -230,7 +232,7 @@ public class Enlace {
             }
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.err.println("Exception: uwuDATA linea 233");
+            System.err.println("Exception: uwuDATA linea 235");
             System.out.println(e.getMessage());
         }
     }
@@ -256,12 +258,14 @@ public class Enlace {
                         rs.getDouble("costoMin"),
                         rs.getDouble("megas"),
                         rs.getDouble("costoMegas"));
+                plan.establecerGigas();
+                plan.establecerCostoGigas();
                 plan.calcularPagoMensual();
                 lista.add(plan);
             }
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.err.println("Exception: uwuDATA linea 266");
+            System.err.println("Exception: uwuDATA linea 268");
             System.out.println(e.getMessage());
         }
     }
@@ -287,12 +291,14 @@ public class Enlace {
                         rs.getDouble("megas"),
                         rs.getDouble("costoMegas"),
                         rs.getInt("descuento"));
+                plan.establecerGigas();
+                plan.establecerCostoGigas();
                 plan.calcularPagoMensual();
                 lista.add(plan);
             }
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.err.println("Exception: uwuDATA linea 295");
+            System.err.println("Exception: uwuDATA linea 301");
             System.out.println(e.getMessage());
         }
     }

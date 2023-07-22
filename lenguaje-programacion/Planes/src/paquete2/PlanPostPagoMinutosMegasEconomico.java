@@ -12,7 +12,9 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double minutos;
     private double costoMin;
     private double megas;
+    private double gigas;
     private double costoMegas;
+    private double costoGigas;
     private int descuento;
     
     /*  minutos|costo minutos|megas expresado en gigas|costo por cada gigas|
@@ -42,12 +44,20 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         costoMin = p;
     }
 
-    public void establecerMegas() {
-        megas = megas/1000;;
+    public void establecerMegas(double p) {
+        megas = p;
+    }
+    
+    public void establecerGigas() {
+        gigas = megas/1000;
     }
 
     public void establecerCostoMegas(double p) {
         costoMegas = p;
+    }
+    
+    public void establecerCostoGigas() {
+        costoGigas = (megas*costoMegas)/gigas;
     }
 
     public void establecerDescuento(int p) {
@@ -66,8 +76,16 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return megas;
     }
 
+    public double obtenerGigas() {
+        return gigas;
+    }
+
     public double obtenerCostoMegas() {
         return costoMegas;
+    }
+
+    public double obtenerCostoGigas() {
+        return costoGigas;
     }
 
     public int obtenerDescuento() {
@@ -86,15 +104,19 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         String cadena = String.format("%s\n"
                 + "Minutos: %.2f\n"
                 + "Costo minutos: $%.4f\n"
-                + "Megas: %.2f\n"
+                + "Megas: %.2f MB\n"
+                + "Gigas: %.2f GB\n"
                 + "Costo megas: $%.4f\n"
+                + "Costo gigas: $%.4f\n"
                 + "Descuento: %d\n"
                 + "Pago Mensual Plan: $%.2f\n",
                 super.toString(),
                 obtenerMinutos(),
                 obtenerCostoMin(),
                 obtenerMegas(),
+                obtenerGigas(),
                 obtenerCostoMegas(),
+                obtenerCostoGigas(),
                 obtenerDescuento(),
                 obtenerPagoMensual());
 
