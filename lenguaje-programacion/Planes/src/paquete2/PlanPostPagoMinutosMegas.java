@@ -12,9 +12,12 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     private double minutos;
     private double costoMin;
     private double megas;
+    private double gigas;
     private double costoMegas;
+    private double costoGigas;
     
-    /*  PlanPostPagoMinutosMegas
+    /*  
+        PlanPostPagoMinutosMegas
         minutos|costo minutos|megas expresado en gigas|costo por cada giga
     */
     public PlanPostPagoMinutosMegas () {
@@ -26,9 +29,9 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
             double costoMi, double meg, double costoMeg){
         super(n, a, pasa, c, ba, marca, modelo, numC);
         minutos = min;
-        costoMi = costoMi;
+        costoMin = costoMi;
         megas = meg;
-        costoMeg = costoMeg;
+        costoMegas = costoMeg;
         tipoPlan = "PlanPostPagoMinutosMegas";
     }        
 
@@ -40,12 +43,20 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
         costoMin = p;
     }
 
-    public void establecerMegas() {
-        megas = megas/1000;
+    public void establecerMegas(double p) {
+        megas = p;
+    }
+    
+    public void establecerGigas() {
+        gigas = megas/1000;
     }
 
     public void establecerCostoMegas(double p) {
         costoMegas = p;
+    }
+    
+    public void establecerCostoGigas() {
+        costoGigas = (megas*costoMegas)/gigas;
     }
 
     public double obtenerMinutos() {
@@ -60,8 +71,16 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
         return megas;
     }
 
+    public double obtenerGigas() {
+        return gigas;
+    }
+
     public double obtenerCostoMegas() {
         return costoMegas;
+    }
+
+    public double obtenerCostoGigas() {
+        return costoGigas;
     }
     
     @Override
@@ -71,19 +90,22 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     
     @Override
     public String toString() {
-        String cadena = String.format("%s"
-                + ">> Plan PostPago Minutos/Megas <<\n"
-                + "\tMinutos: %.2f\n"
-                + "\tCosto minutos: $%.2f\n"
-                + "\tMegas: %.2fGB\n"
-                + "\tCosto megas: $%.2f\n"
+        String cadena = String.format("%s\n"
+                + "Minutos: %.2f\n"
+                + "Costo minutos: $%.4f\n"
+                + "Megas: %.2f MB\n"
+                + "Gigas: %.2f GB\n"
+                + "Costo megas: $%.4f\n"
+                + "Costo gigas: $%.4f\n"
                 + "Pago Mensual Plan: $%.2f\n",
                 super.toString(),
                 obtenerMinutos(),
                 obtenerCostoMin(),
                 obtenerMegas(),
+                obtenerGigas(),
                 obtenerCostoMegas(),
-                obtenerCiudadProp());
+                obtenerCostoGigas(),
+                obtenerPagoMensual());
 
         return cadena;
     }

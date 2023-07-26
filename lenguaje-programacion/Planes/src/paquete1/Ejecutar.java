@@ -37,18 +37,6 @@ public class Ejecutar {
                     PlanPostPagoMegas plan = plan1();
                     c.insertarPlanPostPagoMegas(plan);
                 }
-<<<<<<< HEAD
-                case 2 -> {
-                     
-                }
-                case 3 -> {
-                    
-                }
-                case 4 -> {
-                    
-                }
-=======
-                
                 case 2 -> {
                     PlanPostPagoMinutos plan = plan2();
                     c.insertarPlanPostPagoMinutos(plan);
@@ -63,8 +51,6 @@ public class Ejecutar {
                     PlanPostPagoMinutosMegasEconomico plan = plan4();
                     c.insertarPlanPostPagoMinutosMegasEconomico(plan);
                 }
-                
->>>>>>> 7eb9695e7a7e254a87451c24eb920e1358c97a95
                 default -> {}
             }                                       
             entrada.nextLine();
@@ -75,9 +61,17 @@ public class Ejecutar {
             }
         } 
         
-        c.obtenerDataPlan();
-        for (int i = 0; i < c.obtenerArrayList().size(); i++) {
-            System.out.printf("%s\n", c.obtenerArrayList().get(i));
+        c.obtenerDataPlanPostPagoMegas();
+        c.obtenerDataPlanPostPagoMinutos();
+        c.obtenerDataPlanPostPagoMinutosMegas();
+        c.obtenerDataPlanPostPagoMinutosMegasEconomico();
+        
+        if (c.obtenerArrayList().size()==0) {
+            System.out.println("No hay nada que mostrar");
+        } else {
+            for (int i = 0; i < c.obtenerArrayList().size(); i++) {
+                System.out.printf("%s\n", c.obtenerArrayList().get(i));
+            } 
         }
     }
     

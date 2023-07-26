@@ -29,8 +29,9 @@ public abstract class PlanCelular {
         numero celular
         pago mensual (para obtener el valor, se debe operar en cada subclase)
     */
-    public PlanCelular() {
-        
+    
+    
+    public PlanCelular() {   
     }
     
     public PlanCelular(String n, String a, String pasa, String c, String ba, String marca, 
@@ -96,7 +97,7 @@ public abstract class PlanCelular {
         return pasaporte;
     }
 
-    public String obtenerCiudadProp() {
+    public String obtenerCiudad() {
         return ciudad;
     }
     
@@ -140,7 +141,7 @@ public abstract class PlanCelular {
                 obtenerNombres(),
                 obtenerApellidos(),
                 obtenerPasaporte(),
-                obtenerCiudadProp(),
+                obtenerCiudad(),
                 obtenerBarrio(),
                 obtenerMarcaCelular(),
                 obtenerModeloCelular(),
